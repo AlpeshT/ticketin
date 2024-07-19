@@ -17,7 +17,7 @@ const CustomActionSheet = ({ sheetId, payload }) => {
             <ActionSheet
                 id={sheetId}
                 ref={actionSheetRef}
-                closeOnTouchBackdrop={false}
+                // closeOnTouchBackdrop={false}
                 // closable={false}
                 // backgroundInteractionEnabled={true}
                 ExtraOverlayComponent={<View style={styles.buttonContainer}>

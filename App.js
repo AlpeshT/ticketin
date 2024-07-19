@@ -46,27 +46,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  header: {
-    position: 'absolute',
-    top: 0,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center', // center vertically too
-    padding: 10, // Optional padding
-    height: 118,
-    width: '100%',
-    zIndex: 999,
-  },
-  title: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  titleIOS: {
-    // Styles for centering title on iOS (e.g., flex: 1, textAlign: 'center')
-  },
-  titleAndroid: {
-    // Styles for centering title on Android (might involve margin adjustments)
-  },
 });
 export default App;

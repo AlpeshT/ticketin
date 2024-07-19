@@ -1,21 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-const CustomRadio = ({ label }) => {
+const CustomRadio = ({ label, cb }) => {
     const [isChecked, setIsChecked] = useState(false);
     const handlePress = () => {
         /* set status to checked/unchacked */
         setIsChecked(!isChecked);
-
-        /* set Anser */
-        const newAnswers = [...answers];
-        newAnswers[currentQuestionIndex] = label;
-        setAnswers(newAnswers);
-
-        /* Move to next question */
-        handleNext();
+        cb(label);
     };
-    return (<TouchableOpacity style={styles.checkbox} onPress={handlePress}><Text style={[styles.label, { fontWeight: 600 }]}>{label}</Text>{isChecked && <Image source={require('../assets/Round.png')} style={styles.check} />}</TouchableOpacity>);
+    return (<TouchableOpacity style={styles.checkbox} onPress={() => handlePress(label)}><Text style={[styles.label, { fontWeight: 600 }]}>{label}</Text>{isChecked && <Image source={require('../assets/Round.png')} style={styles.check} />}</TouchableOpacity>);
 };
 const styles = StyleSheet.create({
     checkbox: {

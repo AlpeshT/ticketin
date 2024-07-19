@@ -42,14 +42,29 @@ const Questionnaire = () => {
 
     /* Function to get the value from the textboxes */
     const handleInputChange = (text) => {
+
         const newAnswers = [...answers];
         newAnswers[currentQuestionIndex] = text;
 
-        /* Enable the button */
-        setButtonDisabled(false);
+        if (text !== '') {
+            /* Enable the button */
+            setButtonDisabled(false);
+        } else {
+            /* Enable the button */
+            setButtonDisabled(true);
+        }
         setAnswers(newAnswers);
     };
+    const handleRadioPress = (answer) => {
 
+        /* set Anser */
+        const newAnswers = [...answers];
+        newAnswers[currentQuestionIndex] = answer;
+        setAnswers(newAnswers);
+
+        /* Move to next question */
+        handleNext();
+    };
     const handleCheckboxChange = (label) => {
         let opts = checkedOptions[currentQuestionIndex];
         if (opts.includes(label)) {
@@ -61,7 +76,7 @@ const Questionnaire = () => {
         /* Enable the button if any of the options is checked else disable the button */
         (opts.length) ? setButtonDisabled(false) : setButtonDisabled(true)
 
-        /* Store the answere of the current question */
+        /* Store the answers of the current question */
         const newAnswers = [...answers];
         newAnswers[currentQuestionIndex] = opts;
         setAnswers(newAnswers);
@@ -93,7 +108,7 @@ const Questionnaire = () => {
                             value={answers[currentQuestionIndex]}
                             keyboardType={'default'}
                         />}
-                        {currentQuestion.type == 2 && <><CustomRadio label={'Yes'} /><CustomRadio label={'No'} /></>}
+                        {currentQuestion.type == 2 && <><CustomRadio label={'Yes'} cb={handleRadioPress} /><CustomRadio label={'No'} /></>}
                         {currentQuestion.type == 3 && <View>
                             {currentQuestion.options.map((op) => {
                                 return (<CustomCheckbox key={`option_${op}`} label={op} isChecked={checkIfCheckboxAreChecked(op)} onPress={handleCheckboxChange} />)
