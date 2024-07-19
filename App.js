@@ -1,31 +1,19 @@
 import React, { Suspense } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RecoilRoot } from 'recoil';
 import { NavigationContainer } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 
 import EventList from './Screens/EventList'
 import EventDetail from './Screens/EventDetail';
 import Questionnaire from './Screens/Questionnaire';
+import CustomHeader from './Components/CustomHeader';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  const CustomHeader = () => {
-    const navigation = useNavigation();
-    return (
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.title}>Event</Text>
-        <Ionicons name="ellipsis-horizontal-outline" size={24} color="white" />
-      </View>
-    );
-  }
+
   return (
     <RecoilRoot>
       <SafeAreaView style={styles.container}>
