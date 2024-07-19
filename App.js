@@ -6,14 +6,12 @@ import { RecoilRoot } from 'recoil';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import EventList from './Screens/EventList'
 import EventDetail from './Screens/EventDetail';
 import Questionnaire from './Screens/Questionnaire';
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
 const App = () => {
   const CustomHeader = () => {
