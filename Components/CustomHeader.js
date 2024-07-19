@@ -1,10 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-// import { useNavigation } from '@react-navigation/native';
 
 const CustomHeader = ({ navigation }) => {
-    const navigation = useNavigation();
     return (
         <View style={styles.header}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
